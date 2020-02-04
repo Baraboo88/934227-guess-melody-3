@@ -2,7 +2,7 @@ import React from 'react';
 
 const WelcomeScreen = (props) => {
   // eslint-disable-next-line react/prop-types
-  const {NUMBER_OF_ERRORS} = props;
+  const {numberOfErrors} = props;
 
   return (
     <section className="main" id="root">
@@ -14,7 +14,7 @@ const WelcomeScreen = (props) => {
         <p className="welcome__text">Правила просты:</p>
         <ul className="welcome__rules-list">
           <li>Нужно ответить на все вопросы.</li>
-          <li>Можно допустить {NUMBER_OF_ERRORS} ошибки.</li>
+          <li>Можно допустить {numberOfErrors} ошибки.</li>
         </ul>
         <p className="welcome__text">Удачи!</p>
       </section>
