@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from "./components/app.jsx";
 
-const data = {
-  numberOfErrors: 3
+const Data = {
+  NUMBER_OF_ERRORS: 3
 };
 
 
-ReactDOM.render(<App {...data}/>, document.querySelector(`#root`));
+ReactDOM.render(<App numberOfErrors = {Data.NUMBER_OF_ERRORS}/>, document.querySelector(`#root`));
