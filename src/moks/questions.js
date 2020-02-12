@@ -1,9 +1,7 @@
-export const welcomeScreenMockData = {
-  numberOfErrors: 4,
-  onStartButtonClick: () => {}
-};
 
-export const questions = [
+const AVATAR_URL = `https://api.adorable.io/avatars/128`;
+
+export default [
   {
     type: `genre`,
     genre: `rock`,
@@ -20,24 +18,21 @@ export const questions = [
       src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
       genre: `rock`,
     }],
-  },
-  {
+  }, {
     type: `artist`,
     song: {
-      artist: `Jim Snow`,
+      artist: `Jim Beam`,
       src: `https://upload.wikimedia.org/wikipedia/commons/4/4e/BWV_543-fugue.ogg`,
     },
     answers: [{
-      picture: `https://api.adorable.io/avatars/128/0.6750575244607682`,
-      artist: `John Daniels`,
+      picture: `${AVATAR_URL}/${Math.random()}`,
+      artist: `John Snow`,
     }, {
-      picture: `https://api.adorable.io/avatars/128/0.4076094808626085`,
-      artist: `Jack Beam`,
+      picture: `${AVATAR_URL}/${Math.random()}`,
+      artist: `Jack Daniels`,
     }, {
-      picture: `https://api.adorable.io/avatars/128/0.6972088175637985`,
-      artist: `Jim Snow`,
+      picture: `${AVATAR_URL}/${Math.random()}`,
+      artist: `Jim Beam`,
     }],
   }
 ];
-
-export const userAnswer = [false, false, false, false]

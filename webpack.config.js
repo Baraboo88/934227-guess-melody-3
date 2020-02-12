@@ -9,12 +9,16 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, `public`),
     open: false,
-    port: 1337
+    port: 1337,
+    historyApiFallback: true,
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
+        resolve: {
+          extensions: [`.js`, `.jsx`]
+        },
         exclude: /node_modules/,
         use: {
           loader: `babel-loader`
