@@ -21,6 +21,7 @@ exports[`WelcomeScreen successfully rendered 1`] = `
     <button
       className="welcome__button"
       data-test="test-start-button"
+      onClick={[Function]}
     >
       <span
         className="visually-hidden"

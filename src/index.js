@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from "./components/app/app.jsx";
+import questions from "./moks/questions";
 
-const startButtonClickHandler = () => {};
 const data = {
   numberOfErrors: 3,
-  startButtonClickHandler
+  questions
 };
 
 
