@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 class GenreQuestionScreen extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {answers: [...this.props.question.answers.map(() => false)]};
+    this.state = {
+      answers: [...this.props.question.answers.map(() => false)],
+    };
     this._submitClickHandler = this._submitClickHandler.bind(this);
     this._answerCheckHandler = this._answerCheckHandler.bind(this);
   }
@@ -26,11 +28,9 @@ class GenreQuestionScreen extends PureComponent {
 
   _renderTracks(answers) {
     return answers.map((answer, index) => (
-      <div className="track" key={index}>
-        <button className="track__button track__button--play" type="button"></button>
-        <div className="track__status">
-          <audio></audio>
-        </div>
+      <div className="track" key={`${index}-${answer.src}`}>
+
+        {this.props.renderPlayer(answer.src, index)}
         <div className="game__answer">
           <input
             className="game__input visually-hidden"
@@ -81,7 +81,11 @@ class GenreQuestionScreen extends PureComponent {
 
         <section className="game__screen">
           <h2 className="game__title">Выберите инди-рок треки</h2>
-          <form className="game__tracks" onSubmit={this._submitClickHandler} data-test = 'test-answer-form-send'>
+          <form
+            className="game__tracks"
+            onSubmit={this._submitClickHandler}
+            data-test="test-answer-form-send"
+          >
             {answers && this._renderTracks(answers)}
 
             <button className="game__submit button" type="submit">
@@ -96,13 +100,16 @@ class GenreQuestionScreen extends PureComponent {
 
 GenreQuestionScreen.propTypes = {
   onAnswer: PropTypes.func.isRequired,
+  renderPlayer: PropTypes.func.isRequired,
   question: PropTypes.shape({
     type: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
-    answers: PropTypes.arrayOf(PropTypes.shape({
-      genre: PropTypes.string.isRequired,
-      src: PropTypes.string.isRequired,
-    })).isRequired
+    answers: PropTypes.arrayOf(
+        PropTypes.shape({
+          genre: PropTypes.string.isRequired,
+          src: PropTypes.string.isRequired
+        })
+    ).isRequired
   }).isRequired
 };
 

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const ArtistQuestionScreen = (props) => {
   const {question, onAnswer} = props;
-  const {answers} = question;
+  const {answers, song} = question;
 
 
   const renderAnswers = () =>
@@ -63,10 +63,7 @@ const ArtistQuestionScreen = (props) => {
         <h2 className="game__title">Кто исполняет эту песню?</h2>
         <div className="game__track">
           <div className="track">
-            <button className="track__button track__button--play" type="button"/>
-            <div className="track__status">
-              <audio src={question.song.src}/>
-            </div>
+            {props.renderPlayer(song.src, 0)}
           </div>
         </div>
 
@@ -90,7 +87,8 @@ ArtistQuestionScreen.propTypes = {
       artist: PropTypes.string.isRequired,
       picture: PropTypes.string.isRequired,
     })).isRequired
-  }).isRequired
+  }).isRequired,
+  renderPlayer: PropTypes.func.isRequired
 };
 
 export default ArtistQuestionScreen;

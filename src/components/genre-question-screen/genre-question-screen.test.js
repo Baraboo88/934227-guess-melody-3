@@ -4,6 +4,6 @@ import GenreQuestionScreen from './genre-question-screen';
 import {questions} from '../../../utils/test-data';
 
 it(`ArtistQuestionScreen successfully rendered`, () => {
-  const tree = renderer.create(<GenreQuestionScreen question={questions[0]} onAnswer={() => {}} />);
+  const tree = renderer.create(<GenreQuestionScreen question={questions[0]} onAnswer={() => {}} renderPlayer ={() => {}}/>);
   expect(tree).toMatchSnapshot();
 });
