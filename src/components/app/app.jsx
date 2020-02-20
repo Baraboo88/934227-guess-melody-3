@@ -5,6 +5,11 @@ import {GameType} from '../../utils/const';
 import WelcomeScreen from '../welcome-screen/welcome-screen';
 import ArtistQuestionScreen from '../artist-question-screen/artist-question-screen';
 import GenreQuestionScreen from '../genre-question-screen/genre-question-screen';
+import withActivePlayer from "../../hocs/with-audio-player/with-audio-player";
+
+
+const GenreQuestionScreenWrapped = withActivePlayer(GenreQuestionScreen);
+const ArtistQuestionScreenWrapped = withActivePlayer(ArtistQuestionScreen);
 
 class App extends Component {
   constructor(props) {
@@ -35,9 +40,9 @@ class App extends Component {
 
     switch (question.type) {
       case GameType.ARTIST:
-        return <ArtistQuestionScreen question={question} onAnswer={this._nextScreenHandler} />;
+        return <ArtistQuestionScreenWrapped question={question} onAnswer={this._nextScreenHandler} />;
       case GameType.GENRE:
-        return <GenreQuestionScreen question={question} onAnswer={this._nextScreenHandler} />;
+        return <GenreQuestionScreenWrapped question={question} onAnswer={this._nextScreenHandler} />;
       default:
         return null;
     }
@@ -48,10 +53,10 @@ class App extends Component {
       <BrowserRouter>
         <Switch>
           <Route exact path="/dev-genre">
-            <GenreQuestionScreen question={genreQuestion} onAnswer={this._nextScreenHandler}/>
+            <GenreQuestionScreenWrapped question={genreQuestion} onAnswer={this._nextScreenHandler}/>
           </Route>
           <Route exact path="/dev-artist">
-            <ArtistQuestionScreen question={artistQuestion} onAnswer={this._nextScreenHandler}/>
+            <ArtistQuestionScreenWrapped question={artistQuestion} onAnswer={this._nextScreenHandler}/>
           </Route>
           <Route exact path="/">
             {this._renderGame()}

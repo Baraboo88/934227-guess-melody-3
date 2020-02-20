@@ -10,7 +10,7 @@ Enzyme.configure({adapter: new EnzymeReactAdapter()});
 it(`GenreQuestionScreen: Form sending is correctly working`, () => {
   const question = questions[0];
   const clickHandler = jest.fn();
-  const app = shallow(<GenreQuestionScreen question={question} onAnswer={clickHandler} />);
+  const app = shallow(<GenreQuestionScreen question={question} onAnswer={clickHandler} renderPlayer={() => {}} activePlayerId = {0} onPlayButtonClick = {() => {}}/>);
   const questionForm = findByTestAtr(app, `test-answer-form-send`);
   const event = {
     preventDefault: () => {}

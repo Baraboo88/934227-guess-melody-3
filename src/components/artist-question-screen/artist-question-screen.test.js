@@ -3,7 +3,8 @@ import React from 'react';
 import ArtistQuestionScreen from "./artist-question-screen";
 import {questions} from "../../../utils/test-data";
 
+
 it(`ArtistQuestionScreen successfully rendered`, () => {
-  const tree = renderer.create(<ArtistQuestionScreen question={questions[1]} onAnswer={() => {}}/>);
+  const tree = renderer.create(<ArtistQuestionScreen question={questions[1]} onAnswer={() => {}} activePlayerId = {0} onPlayButtonClick = {() => {}}/>);
   expect(tree).toMatchSnapshot();
 });
