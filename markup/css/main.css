@@ -57,7 +57,7 @@ video {
   /* 2 */ }
 
 /**
- * Prevent modern browsers from displaying `audio-player` without controls.
+ * Prevent modern browsers from displaying `audio` without controls.
  * Remove excess height in iOS 5 devices.
  */
 audio:not([controls]) {

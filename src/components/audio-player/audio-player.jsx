@@ -17,7 +17,10 @@ class AudioPlayer extends PureComponent {
 
   componentDidMount() {
     const {src} = this.props;
-    const audio = this._audioRef.current;
+    let audio = this._audioRef.current;
+    if (!audio) {
+      audio = {};
+    }
 
     audio.src = src;
 
@@ -77,10 +80,10 @@ class AudioPlayer extends PureComponent {
           type="button"
           disabled={this.state.isLoading}
           onClick={this._buttonClickHandler}
-          data-test = 'test-play-button'
+          data-test="test-play-button"
         />
         <div className="track__status">
-          <audio ref={this._audioRef}/>
+          <audio ref={this._audioRef} />
         </div>
       </React.Fragment>
     );

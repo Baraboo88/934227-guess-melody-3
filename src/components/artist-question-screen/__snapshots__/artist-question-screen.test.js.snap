@@ -68,7 +68,20 @@ exports[`ArtistQuestionScreen successfully rendered 1`] = `
     >
       <div
         className="track"
-      />
+      >
+        <button
+          className="track__button track__button--pause"
+          data-test="test-play-button"
+          disabled={true}
+          onClick={[Function]}
+          type="button"
+        />
+        <div
+          className="track__status"
+        >
+          <audio />
+        </div>
+      </div>
     </div>
     <form
       className="game__artist"

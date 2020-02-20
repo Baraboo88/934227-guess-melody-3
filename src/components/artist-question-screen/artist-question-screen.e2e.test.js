@@ -11,7 +11,7 @@ it(`ArtistQuestionScreen: Answer buttons is correctly working`, () => {
   const clickHandler = jest.fn();
   const question = questions[1];
   const app = shallow(
-      <ArtistQuestionScreen question={question} onAnswer={clickHandler} renderPlayer = {() => {}}/>
+      <ArtistQuestionScreen question={question} onAnswer={clickHandler} renderPlayer = {() => {}} activePlayerId = {0} onPlayButtonClick = {() => {}}/>
   );
   const questionButtons = findByTestAtr(app, `test-answer-button`);
 
