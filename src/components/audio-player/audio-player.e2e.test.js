@@ -1,9 +1,9 @@
 import Enzyme, {mount} from 'enzyme';
 import React from 'react';
 import EnzymeReactAdapter from 'enzyme-adapter-react-16';
-import {questions} from '../../../utils/test-data';
+import {questions} from '../../utils/test-data';
 import AudioPlayer from './audio-player';
-import {findByTestAtr} from '../../../utils/test-utils';
+import {findByTestAtr} from '../../utils/test-utils';
 
 Enzyme.configure({adapter: new EnzymeReactAdapter()});
 

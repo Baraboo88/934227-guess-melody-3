@@ -47,12 +47,6 @@ exports[`ArtistQuestionScreen successfully rendered 1`] = `
       <div
         className="wrong"
       />
-      <div
-        className="wrong"
-      />
-      <div
-        className="wrong"
-      />
     </div>
   </header>
   <section

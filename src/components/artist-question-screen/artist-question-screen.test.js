@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 import React from 'react';
 import ArtistQuestionScreen from "./artist-question-screen";
-import {questions} from "../../../utils/test-data";
+import {questions} from "../../utils/test-data";
 
 
 it(`ArtistQuestionScreen successfully rendered`, () => {

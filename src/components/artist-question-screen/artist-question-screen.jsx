@@ -1,17 +1,17 @@
 import React from 'react';
-import PropTypes from "prop-types";
-import AudioPlayer from "../audio-player/audio-player";
+import PropTypes from 'prop-types';
+import AudioPlayer from '../audio-player/audio-player';
+import GameMistakes from '../game-mistakes/game-mistakes';
 
 const ArtistQuestionScreen = (props) => {
-  const {question, onAnswer} = props;
+  const {question, onAnswer, mistakes} = props;
   const {answers, song} = question;
-
 
   const renderAnswers = () =>
     answers.map((answer, index) => (
       <div className="artist" key={index}>
         <input
-          data-test = 'test-answer-button'
+          data-test="test-answer-button"
           className="artist__input visually-hidden"
           type="radio"
           name="answer"
@@ -21,10 +21,7 @@ const ArtistQuestionScreen = (props) => {
             onAnswer(question, answer);
           }}
         />
-        <label
-          className="artist__name"
-          htmlFor={`artist-${index}`}
-        >
+        <label className="artist__name" htmlFor={`artist-${index}`}>
           <img className="artist__picture" src={answer.picture} alt="Пелагея" />
           {answer.artist}
         </label>
@@ -53,11 +50,7 @@ const ArtistQuestionScreen = (props) => {
           />
         </svg>
 
-        <div className="game__mistakes">
-          <div className="wrong"></div>
-          <div className="wrong"></div>
-          <div className="wrong"></div>
-        </div>
+        <GameMistakes mistakes={mistakes} />
       </header>
 
       <section className="game__screen">
@@ -72,9 +65,7 @@ const ArtistQuestionScreen = (props) => {
           </div>
         </div>
 
-        <form className="game__artist">
-          {answers && renderAnswers()}
-        </form>
+        <form className="game__artist">{answers && renderAnswers()}</form>
       </section>
     </section>
   );
@@ -88,13 +79,16 @@ ArtistQuestionScreen.propTypes = {
       artist: PropTypes.string.isRequired,
       src: PropTypes.string.isRequired
     }).isRequired,
-    answers: PropTypes.arrayOf(PropTypes.shape({
-      artist: PropTypes.string.isRequired,
-      picture: PropTypes.string.isRequired,
-    })).isRequired
+    answers: PropTypes.arrayOf(
+        PropTypes.shape({
+          artist: PropTypes.string.isRequired,
+          picture: PropTypes.string.isRequired
+        })
+    ).isRequired
   }).isRequired,
   activePlayerId: PropTypes.number.isRequired,
-  onPlayButtonClick: PropTypes.func.isRequired
+  onPlayButtonClick: PropTypes.func.isRequired,
+  mistakes: PropTypes.number.isRequired
 };
 
 export default ArtistQuestionScreen;

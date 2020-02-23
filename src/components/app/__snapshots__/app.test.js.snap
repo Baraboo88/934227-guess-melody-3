@@ -47,7 +47,7 @@ exports[`App successfully rendered 1`] = `
       </li>
       <li>
         Можно допустить 
-        4
+        3
          ошибки.
       </li>
     </ul>

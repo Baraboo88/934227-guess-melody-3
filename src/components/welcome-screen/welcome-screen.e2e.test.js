@@ -1,9 +1,9 @@
 import React from "react";
 import Enzyme, {shallow} from "enzyme";
 import EnzymeReactAdapter from "enzyme-adapter-react-16";
-import {welcomeScreenMockData} from "../../../utils/test-data";
+import {welcomeScreenMockData} from "../../utils/test-data";
 import WelcomeScreen from "./welcome-screen";
-import {findByTestAtr} from "../../../utils/test-utils";
+import {findByTestAtr} from "../../utils/test-utils";
 
 Enzyme.configure({adapter: new EnzymeReactAdapter()});
 

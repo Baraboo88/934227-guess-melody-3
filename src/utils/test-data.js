@@ -40,4 +40,4 @@ export const questions = [
   }
 ];
 
-export const userAnswer = [false, false, false, false]
+export const userAnswer = [false, false, false, false];

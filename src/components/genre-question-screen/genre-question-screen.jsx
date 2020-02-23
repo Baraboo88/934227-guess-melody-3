@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import AudioPlayer from "../audio-player/audio-player";
+import GameMistakes from "../game-mistakes/game-mistakes";
 
 class GenreQuestionScreen extends PureComponent {
   constructor(props) {
@@ -54,6 +55,7 @@ class GenreQuestionScreen extends PureComponent {
   }
 
   render() {
+    const {mistakes} = this.props;
     const {answers} = this.props.question;
     return (
       <section className="game game--genre">
@@ -77,11 +79,8 @@ class GenreQuestionScreen extends PureComponent {
             />
           </svg>
 
-          <div className="game__mistakes">
-            <div className="wrong"></div>
-            <div className="wrong"></div>
-            <div className="wrong"></div>
-          </div>
+          <GameMistakes mistakes={mistakes}/>
+
         </header>
 
         <section className="game__screen">
@@ -116,7 +115,8 @@ GenreQuestionScreen.propTypes = {
     ).isRequired
   }).isRequired,
   activePlayerId: PropTypes.number.isRequired,
-  onPlayButtonClick: PropTypes.func.isRequired
+  onPlayButtonClick: PropTypes.func.isRequired,
+  mistakes: PropTypes.number.isRequired
 };
 
 export default GenreQuestionScreen;
