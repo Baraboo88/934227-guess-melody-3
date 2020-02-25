@@ -14,7 +14,7 @@ exports[`App successfully rendered 1`] = `
       <img
         alt="Угадай мелодию"
         height="83"
-        src="img/melody-logo.png"
+        src="/img/melody-logo.png"
         width="186"
       />
     </div>

@@ -2,6 +2,8 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import AudioPlayer from "../audio-player/audio-player";
 import GameMistakes from "../game-mistakes/game-mistakes";
+import {connect} from 'react-redux';
+import {mapDispatchToProps, mapStateToProps} from "../../utils/utils";
 
 class GenreQuestionScreen extends PureComponent {
   constructor(props) {
@@ -18,6 +20,9 @@ class GenreQuestionScreen extends PureComponent {
 
     evt.preventDefault();
     onAnswer(this.props.question, this.state.answers);
+    if (this.props.nextType) {
+      this.props.history.push(`/game/${this.props.nextType}/${this.props.nextId}`);
+    }
   }
 
   _answerCheckHandler(index) {
@@ -62,7 +67,7 @@ class GenreQuestionScreen extends PureComponent {
         <header className="game__header">
           <a className="game__back" href="#">
             <span className="visually-hidden">Сыграть ещё раз</span>
-            <img className="game__logo" src="img/melody-logo-ginger.png" alt="Угадай мелодию" />
+            <img className="game__logo" src="/img/melody-logo-ginger.png" alt="Угадай мелодию" />
           </a>
 
           <svg xmlns="http://www.w3.org/2000/svg" className="timer" viewBox="0 0 780 780">
@@ -116,7 +121,11 @@ GenreQuestionScreen.propTypes = {
   }).isRequired,
   activePlayerId: PropTypes.number.isRequired,
   onPlayButtonClick: PropTypes.func.isRequired,
-  mistakes: PropTypes.number.isRequired
+  mistakes: PropTypes.number.isRequired,
+  nextType: PropTypes.string,
+  nextId: PropTypes.number,
+  history: PropTypes.object,
 };
 
-export default GenreQuestionScreen;
+export {GenreQuestionScreen};
+export default connect(mapStateToProps, mapDispatchToProps)(GenreQuestionScreen);

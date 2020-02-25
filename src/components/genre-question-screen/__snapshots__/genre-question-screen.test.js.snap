@@ -19,7 +19,7 @@ exports[`ArtistQuestionScreen successfully rendered 1`] = `
       <img
         alt="Угадай мелодию"
         className="game__logo"
-        src="img/melody-logo-ginger.png"
+        src="/img/melody-logo-ginger.png"
       />
     </a>
     <svg

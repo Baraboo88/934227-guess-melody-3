@@ -5,6 +5,7 @@ export const welcomeScreenMockData = {
 
 export const questions = [
   {
+    id: 1,
     type: `genre`,
     genre: `rock`,
     answers: [{
@@ -22,6 +23,7 @@ export const questions = [
     }],
   },
   {
+    id: 2,
     type: `artist`,
     song: {
       artist: `Jim Snow`,

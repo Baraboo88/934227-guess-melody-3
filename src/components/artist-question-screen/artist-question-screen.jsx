@@ -2,9 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AudioPlayer from '../audio-player/audio-player';
 import GameMistakes from '../game-mistakes/game-mistakes';
+import {mapDispatchToProps, mapStateToProps} from "../../utils/utils";
+import {connect} from 'react-redux';
 
 const ArtistQuestionScreen = (props) => {
   const {question, onAnswer, mistakes} = props;
+
   const {answers, song} = question;
 
   const renderAnswers = () =>
@@ -19,6 +22,9 @@ const ArtistQuestionScreen = (props) => {
           id={`artist-${index}`}
           onChange={() => {
             onAnswer(question, answer);
+            if (props.nextType) {
+              props.history.push(`/game/${props.nextType}/${props.nextId}`);
+            }
           }}
         />
         <label className="artist__name" htmlFor={`artist-${index}`}>
@@ -33,7 +39,7 @@ const ArtistQuestionScreen = (props) => {
       <header className="game__header">
         <a className="game__back" href="#">
           <span className="visually-hidden">Сыграть ещё раз</span>
-          <img className="game__logo" src="img/melody-logo-ginger.png" alt="Угадай мелодию" />
+          <img className="game__logo" src="/img/melody-logo-ginger.png" alt="Угадай мелодию" />
         </a>
 
         <svg xmlns="http://www.w3.org/2000/svg" className="timer" viewBox="0 0 780 780">
@@ -88,7 +94,13 @@ ArtistQuestionScreen.propTypes = {
   }).isRequired,
   activePlayerId: PropTypes.number.isRequired,
   onPlayButtonClick: PropTypes.func.isRequired,
-  mistakes: PropTypes.number.isRequired
+  mistakes: PropTypes.number.isRequired,
+  nextType: PropTypes.string,
+  nextId: PropTypes.number,
+  history: PropTypes.object,
+
 };
 
-export default ArtistQuestionScreen;
+export {ArtistQuestionScreen};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ArtistQuestionScreen);

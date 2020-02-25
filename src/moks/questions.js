@@ -3,6 +3,7 @@ const AVATAR_URL = `https://api.adorable.io/avatars/128`;
 
 export default [
   {
+    id: 1,
     type: `genre`,
     genre: `rock`,
     answers: [{
@@ -19,6 +20,7 @@ export default [
       genre: `rock`,
     }],
   }, {
+    id: 2,
     type: `artist`,
     song: {
       artist: `Jim Beam`,
